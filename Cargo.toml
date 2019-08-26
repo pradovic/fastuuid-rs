@@ -1,13 +1,29 @@
 [package]
-name = "fastuuid-rs"
-version = "0.1.0"
+name = "fastuuid"
+version = "0.2.0"
 authors = ["pradovic <petar.radovic@gmail.com>"]
-edition = "2018"
+description = "Fast and lightweight generation of 192-bit uuids with support for 128-bit strings"
+repository = "https://github.com/pradovic/fastuuid-rs"
+keywords = ["guid", "unique", "uuid", "quessable"]
+license = "Apache-2.0 OR MIT"
+readme = "README.md"
+
+[lib]
+name = "fastuuid"
 
 [dependencies]
 rand = "0.7.0"
 atomic = "0.4.5"
+faster-hex = "0.3.1"
 hex = "0.3.2"
+
+
+[dev-dependencies]
+criterion = "0.3"
+
+[[bench]]
+name = "fastuuid_bench"
+harness = false
 
 
 
