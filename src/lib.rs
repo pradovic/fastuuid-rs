@@ -1,6 +1,3 @@
-extern crate rand;
-extern crate faster_hex;
-
 use rand::Rng;
 use std::convert::TryInto;
 use std::sync::atomic::{AtomicUsize, Ordering};
@@ -49,15 +46,15 @@ impl Generator {
         // RFC4122
         temp_uuid[8] = temp_uuid[8] & 0x3f | 0x80;
 
-        faster_hex::hex_encode(&temp_uuid[0..4],  &mut res[0..8]).unwrap();
-        res[8] = '-' as u8;
-        faster_hex::hex_encode(&temp_uuid[4..6],  &mut res[9..13]).unwrap();
-        res[13] = '-' as u8;
-        faster_hex::hex_encode(&temp_uuid[6..8],  &mut res[14..18]).unwrap();
-        res[18] = '-' as u8;
-        faster_hex::hex_encode(&temp_uuid[8..10],  &mut res[19..23]).unwrap();
-        res[23] = '-' as u8;
-        faster_hex::hex_encode(&temp_uuid[10..16],  &mut res[24..]).unwrap();
+        faster_hex::hex_encode(&temp_uuid[0..4], &mut res[0..8]).unwrap();
+        res[8] = b'-';
+        faster_hex::hex_encode(&temp_uuid[4..6], &mut res[9..13]).unwrap();
+        res[13] = b'-';
+        faster_hex::hex_encode(&temp_uuid[6..8], &mut res[14..18]).unwrap();
+        res[18] = b'-';
+        faster_hex::hex_encode(&temp_uuid[8..10], &mut res[19..23]).unwrap();
+        res[23] = b'-';
+        faster_hex::hex_encode(&temp_uuid[10..16], &mut res[24..]).unwrap();
 
         return std::str::from_utf8(&res).unwrap().to_string();
     }
@@ -67,10 +64,10 @@ impl Generator {
         let uuid_bytes = uuid.as_bytes();
         if uuid.len() != 36
             || uuid_bytes.len() != 36
-            || uuid_bytes[8] != '-' as u8
-            || uuid_bytes[13] != '-' as u8
-            || uuid_bytes[18] != '-' as u8
-            || uuid_bytes[23] != '-' as u8
+            || uuid_bytes[8] != b'-'
+            || uuid_bytes[13] != b'-'
+            || uuid_bytes[18] != b'-'
+            || uuid_bytes[23] != b'-'
         {
             return false;
         }
@@ -83,12 +80,8 @@ impl Generator {
     }
 
     fn valid_hex(hex: &str) -> bool {
-        for c in hex.chars() {
-            if !('0' <= c && c <= '9' || 'a' <= c && c <= 'f') {
-                return false;
-            }
-        }
-        return true;
+        hex.chars()
+            .all(|c| '0' <= c && c <= '9' || 'a' <= c && c <= 'f')
     }
 }
 
