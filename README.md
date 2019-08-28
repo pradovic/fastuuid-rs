@@ -8,7 +8,7 @@ It avoids generating reading 192 bit from rand on each UUID generation, and offe
 with or without allocating a new heap string object as well, with both safe and unsafe versions of the same function.
 
 Benchmarks are included. On my machine generation of a 192-bit UUID takes ~7n, while generating the 128-bit string
-without and with additional heap allocation (unsafe version) takes <20ns & ~95ns respectively. Safe versions take additional ~10ns.
+without additional heap allocation (unsafe version) takes <20ns & ~95ns respectively. Safe versions take additional ~10ns.
 
 ## Usage
 
