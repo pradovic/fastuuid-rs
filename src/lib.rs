@@ -11,7 +11,7 @@
 //!
 //!```toml
 //![dependencies]
-//!fastuuid = "0.1"
+//!fastuuid = "0.2.0"
 //!```
 //!
 //!## Examples
