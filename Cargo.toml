@@ -1,6 +1,6 @@
 [package]
 name = "fastuuid"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["pradovic <petar.radovic@gmail.com>"]
 description = "Fast and lightweight generation of 192-bit uuids with support for 128-bit strings"
 repository = "https://github.com/pradovic/fastuuid-rs"
