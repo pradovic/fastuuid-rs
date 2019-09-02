@@ -16,7 +16,7 @@ without additional heap allocation (unsafe version) takes <20ns & ~95ns respecti
 
 ```toml
 [dependencies]
-fastuuid = "0.2.0"
+fastuuid = "0.3.0"
 ```
 
 ## Examples
