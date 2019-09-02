@@ -1,12 +1,14 @@
 [package]
 name = "fastuuid"
-version = "0.2.1"
+version = "0.3.0"
 authors = ["pradovic <petar.radovic@gmail.com>"]
 description = "Fast and lightweight generation of 192-bit uuids with support for 128-bit strings"
 repository = "https://github.com/pradovic/fastuuid-rs"
 keywords = ["guid", "unique", "uuid", "quessable"]
 license = "Apache-2.0 OR MIT"
 readme = "README.md"
+edition = "2018"
+
 
 [lib]
 name = "fastuuid"

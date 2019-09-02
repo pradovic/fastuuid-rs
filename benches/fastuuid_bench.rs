@@ -3,7 +3,7 @@ extern crate criterion;
 extern crate rand;
 
 use criterion::Criterion;
-use fastuuid_rs::Generator;
+use fastuuid::Generator;
 
 fn criterion_benchmark(c: &mut Criterion) {
     let g = Generator::new();

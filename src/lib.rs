@@ -84,7 +84,7 @@ impl Generator {
     pub fn next(&self) -> [u8; 24] {
         let current = self.counter.fetch_add(1, Ordering::SeqCst);
         let mut uuid: [u8; 24] = Default::default();
-        uuid[..8].copy_from_slice(&current.to_be_bytes());
+        uuid[..8].copy_from_slice(&current.to_le_bytes());
         uuid[8..].copy_from_slice(&self.seed[8..]);
         return uuid;
     }
