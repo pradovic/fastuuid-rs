@@ -17,11 +17,11 @@ name = "fastuuid"
 rand = "0.7.0"
 atomic = "0.4.5"
 faster-hex = "0.3.1"
-hex = "0.3.2"
 
 
 [dev-dependencies]
 criterion = "0.3"
+uuid = { version = "0.8", features = ["serde", "v4"] }
 
 [[bench]]
 name = "fastuuid_bench"

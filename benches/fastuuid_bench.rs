@@ -4,6 +4,7 @@ extern crate rand;
 
 use criterion::Criterion;
 use fastuuid::Generator;
+use uuid::Uuid;
 
 fn criterion_benchmark(c: &mut Criterion) {
     let g = Generator::new();
@@ -26,6 +27,14 @@ fn criterion_benchmark(c: &mut Criterion) {
     c.bench_function("hex128_as_string", |b| {
         b.iter(|| g.hex128_as_string().unwrap())
     });
+
+    c.bench_function("uuid_uuidV4", |b| {
+        b.iter(|| {
+            let mut buffer: [u8; 36] = [0; 36];
+            let _my_uuid = Uuid::new_v4().to_hyphenated().encode_lower(&mut buffer);
+        })
+    });
+
 }
 
 criterion_group!(benches, criterion_benchmark);
